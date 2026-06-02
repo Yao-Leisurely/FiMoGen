@@ -1,0 +1,27 @@
+enviroment_variable:
+    MODE: inference_GAN # [train_G1, train_cDCGAN, plot_history_G1, plot_history_GAN, evaluate_G1, evaluate_GAN, tsne_GAN, inference_G1, inference_GAN]
+    DATASET: Syntetich_complete  # [type][underscore][note]
+    DATASET_CONFIGURATION: testing_configuration
+    ARCHITETURE: mobi256 #bibranch,mono
+    OUTPUTS_DIR: output_mobi256
+    G1_NAME_WEIGHTS_FILE: Model_G1_epoch_003-loss_0.007-ssim_0.983-mask_ssim_0.994-val_loss_0.024-val_ssim_0.965-val_mask_ssim_0.988.weights.h5   # the weights will take from ./[outputs_dir]/weights/G1
+    G2_NAME_WEIGHTS_FILE: Model_G2_epoch_160-loss_1.13-ssmi_0.97-mask_ssmi_0.99-I_PT2_1400-Ic_0-It_1400-val_loss_1.75-val_ssim_0.94-val_mask_ssim_0.97-val_I_PT2_50-val_Ic_50-val_It_49.weights.h5
+
+G1_train_info:
+    epochs: 1
+    batch_size_train: 2
+    batch_size_valid: 2
+    lr_update_epoch: 1
+    drop_rate: 1
+    save_grid_ssim_epoch_train: 1
+    save_grid_ssim_epoch_valid: 1
+
+GAN_train_info:
+    epochs: 160   #180
+    batch_size_train: 8  #
+    batch_size_valid: 8  #
+    lr_update_epoch: 1000
+    G2_drop_rate: 0.5
+    D_drop_rate: 0.5
+    save_grid_ssim_epoch_train: 1
+    save_grid_ssim_epoch_valid: 1
